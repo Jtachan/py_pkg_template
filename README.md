@@ -11,7 +11,7 @@ Fill up with a repo description
 You can find the documentation:
 
 - Within the [`/docs`](docs/index.md) folder
-- At the [mkdocs generated page](https://jtachan.github.io/enigma_cipher/) (official documentation)
+- At the mkdocs generated page(https://jtachan.github.io/REPO_NAME/) (official documentation)
 
 ## 🐍 Python Setup
 
