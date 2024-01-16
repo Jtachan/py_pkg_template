@@ -1,0 +1,42 @@
+[project]
+name = "python-package-template"
+authors = [
+    # you can specify multiple authors if required!
+    { name = "YOUR NAME HERE", email = "YOUR.NAME@mail.com" },
+]
+description = "CHANGEME"
+urls = { Source = "http://github/ORGANIZATION/REPO.git" }
+dependencies = [
+    # add all dependencies of your package here
+    # be generous about dependency versions, packages generally follow SemVer versioning.
+    # That means, as long as the major version stays the same, it should not break your code!
+    # One exception are versions below 1.0.0. Here, breaking changes could be introduced in ANY
+    # version!
+    # some examples:
+    # "requests", # do not care about the version at all (can be dangerous on a major release)
+    # "requests>=2,<3" # any version of requests v2 works. Do not use version 3.
+    # "requests>=2.31.0,<3" # Version 2.31.0 introduced a required function, this is the minimum which works.
+]
+requires-python = ">=3.8"
+license = { text = "MIT license" }
+dynamic = ["readme", "version"]
+
+# you can add CLI tools which should be installed when installing the package
+# best practice is to start their name with "sms-", to indicate it is a smartmicro tool!
+# [project.scripts]
+# cli-command = "pkg_name.module:function"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = { attr = "pkg_name._version.__version__" }
+readme = { file = ["README.md"], content-type = "text/markdown" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.isort]
+profile = "black"
+src_paths = ["src", "unittests"]

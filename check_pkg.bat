@@ -1,6 +1,6 @@
-black enigma_cipher unittests
-isort enigma_cipher unittests
+black src unittests
+isort src unittests
 python -m pip install pip -U
 pip install .
-flake8 enigma_cipher unittests
-pylint enigma_cipher unittests
+flake8 src unittests
+pylint src unittests
