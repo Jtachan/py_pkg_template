@@ -154,3 +154,7 @@ cython_debug/
 
 # PyCharm
 .idea/
+
+# Dev. Files
+check_pkg.bat
+dev_requirements.txt
