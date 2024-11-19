@@ -1,5 +1,5 @@
-site_name: Enigma Cipher
-repo_url: https://github.com/Jtachan/{REPO}
+site_name: Package Name
+repo_url: https://github.com/USERNAME/REPO
 
 nav:
   - Home: 'index.md'
