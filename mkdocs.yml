@@ -1,14 +1,16 @@
 site_name: Package Name
 repo_url: https://github.com/USERNAME/REPO
+repo_name: Name on the tab
+site_dir: public
+site_description: "Documentation for the package"
+site_author: "@Jtachan"
 
 nav:
   - Home: 'index.md'
 
 theme:
   name: material
-  # color scheme configuration
-  # changing between light and dark mode is already enabled
-  # available primary colors: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#primary-color
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#primary-color
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -25,43 +27,59 @@ theme:
   features:
     - content.code.annotate
     - content.code.copy
+    - content.action.edit
+    - content.action.view
     - navigation.instant
+    - navigation.tabs
+    - navigation.top
     - navigation.footer
     - navigation.sections
     - search.suggest
     - search.highlight
+    - toc.follow
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      handlers:
+        python:  # https://mkdocstrings.github.io/python/usage/
+          options:
+            # General options
+            show_bases: false
+            show_source: false
+            # Headings
+            heading_level: 1
+            parameter_headings: true
+            show_root_heading: true
+            show_root_full_path: true
+            show_root_members_full_path: false
+            show_category_heading: false
+            # Members
+            inherited_members: true
+            members_order: source
+            filters:
+              - "!^_.*$"
+            group_by_category: true
+            show_submodules: true
+            # Docstrings
+            docstring_style: numpy
+            docstring_section_style: table
+            merge_init_into_class: true
+            # Signatures
+            annotations_path: source
+            line_length: 88
+            modernize_annotations: true
+            overloads_only: true
+            show_signature: true
+            show_signature_annotations: true
+            separate_signature: true
+            show_overloads: true
+
 markdown_extensions:
-  # some selected markdown extensions
-  # feel free to add more
-  - admonition
+  - admonition  # https://squidfunk.github.io/mkdocs-material/reference/admonitions/?h=admonition#supported-types
   - pymdownx.details
   - pymdownx.superfences
   - footnotes
   - toc:
       permalink: true
-plugins:
-  - search
-  - mkdocstrings:
-    handlers:
-      python:
-        options:
-          docstring_style: numpy
-          # Keeps a good heading hierarchy:
-          show_root_heading: true
-          show_root_full_path: false
-          # Whether the source code should be displayed in the documentation:
-          show_source: false
-          # Whether the general class inheritance is displayed or not.
-          # This is still modifiable at each class individually through the same 'options' shema.
-          show_bases: false
-          # Merging the description of the constructor into the class' main docstring.
-          merge_init_into_class: true
-          # Filter to remove all dunder methods from the generated docs
-          filters:
-            - "!^__.*__$"
-          extensions:
-            - griffe_pydantic:
-                schema: true
-extra:
-  version:
-    provider: mike # allows deploying versioned documentation for each release

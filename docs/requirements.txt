@@ -1,7 +1,3 @@
-# Required for mkdocs to work
 mkdocs-material
-
-# Automatic pages creation based from the docstrings
 mkdocstrings-python 
-# Integration for pydantic
-griffe-pydantic
+# griffe-pydantic

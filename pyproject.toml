@@ -1,7 +1,7 @@
 [project]
 name = "python-package-template"
 authors = [
-    { name = "YOUR NAME HERE", email = "your_email@mail.com" },
+    { name = "YOUR NAME HERE", email = "jgonzg@proton.me" },
 ]
 description = "CHANGEME"
 dependencies = [
@@ -22,8 +22,8 @@ Documentation = "https://readthedocs.org"
 # [project.scripts]
 # cli-command = "pkg_name.module:function"
 
-[project.optional-dependencies]
-dev = ["ruff", "pytest", "mkdocs-material"]
+# [project.optional-dependencies]
+# dev = ["ruff", "pytest", "mkdocs-material"]
 
 [build-system]
 requires = ["setuptools>=70.0", "wheel"]
